@@ -10,6 +10,7 @@ class App extends Component {
 
     this.state = {
       name: 'Seth',
+      nameChanged: false,
     }
   }
 
@@ -19,7 +20,21 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>Hello, {this.state.name}.</p>
-          <button>Change Name</button>
+          <button
+            onClick={() => {
+              if(this.state.nameChanged){
+                this.setState({ name: 'Seth' });
+                this.setState({ nameChanged: false });
+              }
+              else{
+                this.setState({ name: 'Harper' });
+                this.setState({ nameChanged: true });
+              }
+              
+            }}
+          >
+            Change Name
+          </button>
         </header>
       </div>
     );
