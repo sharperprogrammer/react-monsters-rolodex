@@ -23,12 +23,48 @@ class App extends Component {
           <button
             onClick={() => {
               if(this.state.nameChanged){
-                this.setState({ name: 'Seth' });
-                this.setState({ nameChanged: false });
+                this.setState(
+                  () => {
+                  return { 
+                    name: 'Seth',
+                  };
+                  }, 
+                  () => {
+                    console.log(this.state);
+                  }
+                );
+                this.setState(
+                  () => { 
+                    return {
+                      nameChanged: false 
+                    }
+                  },
+                  () => {
+                    console.log(this.state);
+                  }
+                );
               }
               else{
-                this.setState({ name: 'Harper' });
-                this.setState({ nameChanged: true });
+                this.setState(
+                  () => {
+                    return {
+                      name: 'Harper' 
+                    }
+                  },
+                  () => {
+                    console.log(this.state);
+                  }
+                );
+                this.setState(
+                  () => {
+                    return { 
+                      nameChanged: true 
+                    }
+                  },
+                  () => {
+                    console.log(this.state);
+                  }
+                );
               }
               
             }}
